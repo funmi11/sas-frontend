@@ -59,7 +59,7 @@ export default {
     },
     methods: {
         gotoOleve(id){
-             this.$router.push({name: 'dashboard.olevel', param: id})
+             this.$router.push({name: 'dashboard.olevel', params: {'id':id}})
                 .catch(() => {
                     // console.log(err)
                 });

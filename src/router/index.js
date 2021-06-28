@@ -22,6 +22,12 @@ import OlevelComponent from '@/components/student-dashboard/olevel'
 import ExamComponent from '@/components/student-dashboard/exam'
 import ListExamComponent from '@/components/student-dashboard/listExam'
 
+//admin dashboard
+import AdminPage from '@/components/admin-dashboard/page'
+import StudentComponent from '@/components/admin-dashboard/students'
+
+
+
 
 
 Vue.use(Router);
@@ -103,10 +109,10 @@ export default new Router({
             name: "student",
             component: StudentDashboardPage,
             meta: {
-                // forVisitor: false,
-                // forAuth: true,
-                   forStudent: true,
-                // forAdmin: false
+                forVisitor: false,
+                forAuth: true,
+                forStudent: true,
+                forAdmin: false
             },
             children: [
                 {
@@ -114,10 +120,10 @@ export default new Router({
                     name: "dashboard",
                     component: StudentDashboardComponet,
                       meta: {
-                        // forVisitor: false,
-                        // forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        // forAdmin: false
+                        forAdmin: false
                     },
                 },
                 {
@@ -125,10 +131,10 @@ export default new Router({
                     name: "dashboard",
                     component: ProfileComponet,
                       meta: {
-                        // forVisitor: false,
-                        // forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        // forAdmin: false
+                        forAdmin: false
                     },
                 },
                 {
@@ -136,10 +142,10 @@ export default new Router({
                     name: "dashboard",
                     component: UpdatePasswordComponent,
                     mata: {
-                        //forVisitor: false,
-                        //forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        //forAdmin: false
+                        forAdmin: false
                     },
                 },
                 {
@@ -147,10 +153,10 @@ export default new Router({
                     name: "dashboard",
                     component: JambComponent,
                     mata: {
-                        //forVisitor: false,
-                        //forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        //forAdmin: false
+                        forAdmin: false
                     },
                 },
                 {
@@ -158,10 +164,10 @@ export default new Router({
                     name: "dashboard.olevel",
                     component: OlevelComponent,
                     mata: {
-                        //forVisitor: false,
-                        //forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        //forAdmin: false
+                        forAdmin: false
                     },
                 },            
                 {
@@ -169,10 +175,10 @@ export default new Router({
                     name: "dashboard",
                     component: ExamComponent,
                     mata: {
-                        //forVisitor: false,
-                        //forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        //forAdmin: false
+                        forAdmin: false
                     },
                 },
                 {
@@ -180,12 +186,34 @@ export default new Router({
                     name: "dashboard",
                     component: ListExamComponent,
                     mata: {
-                        //forVisitor: false,
-                        //forAuth: true,
+                        forVisitor: false,
+                        forAuth: true,
                         forStudent: true,
-                        //forAdmin: false
+                        forAdmin: false
                     },
                 },
+                {
+                    path: '/admin',
+                    name: 'admin',
+                    component: AdminPage,
+                    meta: {
+                        // forAuth: true,
+                        forAdmin: true,
+                        forStudent: false
+                    },
+                    children: [
+                        {
+                            path: '/',
+                            name: 'admin.student',
+                            component: StudentComponent,
+                            meta: {
+                                // forAuth: true,
+                                forAdmin: true,
+                                forStudent: false
+                            }
+                        }
+                    ]
+                }
             ]
         }
     ]

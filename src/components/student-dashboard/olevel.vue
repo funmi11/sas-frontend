@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="ExamId">Exam Registration Number</label>
+                        <label for="ExamId">Exam Registration Number {{$route.params.id}}</label>
                         <input type="" v-model="olevel.examId"
                             class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
                         <small id="helpId" class="form-text text-muted">Help text</small>
@@ -77,6 +77,8 @@ export default {
       }  
     },
     created(){
+        // console.log(this.$route.params.id);
+        this.olevel.examId = this.$route.params.id;
         this.getOlevel();
         this.getSubject();
     },
